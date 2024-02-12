@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
   - shell
-  - ruby
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -37,17 +36,10 @@ This API does not require authentication
 
 ## Get All Links
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
 
 ```shell
 curl --request GET \
-  --url http://localhost:3000/api/v1/links
+  --url http://localhost:3000/api/v1/links?page=1
 ```
 
 > The above command returns JSON structured like this:
@@ -58,7 +50,7 @@ curl --request GET \
 	{
 		"id": 1,
 		"original_url": "https://google.com/",
-		"short_url": null,
+		"short_url": "http://localhost:3000/onI52uQ",
 		"token": "onI52uQ",
 		"analytics_count": 0,
 		"updated_at": "2024-02-09T06:38:12.777Z",
@@ -67,7 +59,7 @@ curl --request GET \
 	{
 		"id": 2,
 		"original_url": "https://google.com/",
-		"short_url": null,
+		"short_url": "http://localhost:3000/asdEWQ13",
 		"token": "asdEWQ13",
 		"analytics_count": 0,
 		"updated_at": "2024-02-09T06:38:12.772Z",
@@ -86,8 +78,7 @@ This endpoint retrieves all links.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+page | true | You can use this parameter to paginate through the results. The default is 1.
 
 
 ## Get a Specific Link
@@ -112,7 +103,7 @@ curl --request GET \
 {
   "id": 60,
 	"original_url": "https://google.com/",
-	"short_url": null,
+	"short_url": "http://localhost:3000/onI52uQ",
 	"token": "onI52uQ",
 	"analytics_count": 0,
 	"updated_at": "2024-02-09T06:38:12.777Z",
@@ -135,12 +126,6 @@ ID | The ID of the link to retrieve
 
 ## Update a Specific Link
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```shell
 curl --request PATCH \
@@ -172,13 +157,6 @@ Parameter  | Description
 ## Create a Specific Link
 
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
 ```shell
 curl --request POST \
   --url http://localhost:3000/api/v1/links \
@@ -204,7 +182,7 @@ Parameter  | Description
 {
   "id": 60,
 	"original_url": "https://google.com/",
-	"short_url": null,
+	"short_url": "http://localhost:3000/onI52uQ",
 	"token": "onI52uQ",
 	"analytics_count": 0,
 	"updated_at": "2024-02-09T06:38:12.777Z",
@@ -214,34 +192,12 @@ Parameter  | Description
 
 ## Delete a Specific Link
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-
 ```shell
 curl "http://localhost:3000/api/v1/links/5" \
   -X DELETE 
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
 
 This endpoint deletes a specific link.
 
@@ -254,4 +210,109 @@ This endpoint deletes a specific link.
 Parameter | Description
 --------- | -----------
 ID | The ID of the link to delete
+
+# Analytics
+
+## Get Analytics from Link
+
+
+```shell
+curl --request GET \
+  --url http://localhost:3000/api/v1/links/1/analytics?page=1
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+	{
+		"id": 1,
+		"system_name": "macOS",
+		"browser_name": "Chrome",
+		"browser_version": "121.0.0.0",
+		"referer": null,
+		"country": null,
+		"region": null,
+		"city": null,
+		"latitude": null,
+		"longitude": null,
+		"ip": "172.17.0.1",
+		"device": "mac",
+		"created_at": "2024-02-12T00:11:49.655Z"
+	},
+	{
+		"id": 2,
+		"system_name": "macOS",
+		"browser_name": "Chrome",
+		"browser_version": "121.0.0.0",
+		"referer": null,
+		"country": null,
+		"region": null,
+		"city": null,
+		"latitude": null,
+		"longitude": null,
+		"ip": "172.17.0.1",
+		"device": "mac",
+		"created_at": "2024-02-12T00:11:50.342Z"
+	},
+	{
+		"id": 3,
+		"system_name": "macOS",
+		"browser_name": "Chrome",
+		"browser_version": "121.0.0.0",
+		"referer": null,
+		"country": null,
+		"region": null,
+		"city": null,
+		"latitude": null,
+		"longitude": null,
+		"ip": "172.17.0.1",
+		"device": "mac",
+		"created_at": "2024-02-12T00:11:51.036Z"
+	},
+	{
+		"id": 4,
+		"system_name": "macOS",
+		"browser_name": "Chrome",
+		"browser_version": "121.0.0.0",
+		"referer": null,
+		"country": null,
+		"region": null,
+		"city": null,
+		"latitude": null,
+		"longitude": null,
+		"ip": "172.17.0.1",
+		"device": "mac",
+		"created_at": "2024-02-12T00:11:51.639Z"
+	},
+	{
+		"id": 5,
+		"system_name": "macOS",
+		"browser_name": "Chrome",
+		"browser_version": "121.0.0.0",
+		"referer": null,
+		"country": null,
+		"region": null,
+		"city": null,
+		"latitude": null,
+		"longitude": null,
+		"ip": "172.17.0.1",
+		"device": "mac",
+		"created_at": "2024-02-12T00:11:52.023Z"
+	}
+]
+```
+
+This endpoint retrieves analytics fom link.
+
+### HTTP Request
+
+`GET http://localhost:3000/api/v1/links/<ID>/analytics`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+ID | true | You can use this parameter to paginate through the results. The default is 1.
+page | true | You can use this parameter to paginate through the results. The default is 1.
 
