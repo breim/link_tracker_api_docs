@@ -407,11 +407,7 @@
 <td>You can use this parameter to paginate through the results. The default is 1.</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-link'>Get a Specific Link</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+<h2 id='get-a-specific-link'>Get a Specific Link</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
   <span class="nt">--url</span> http://localhost:3000/api/v1/links/60
 </code></pre></div>
 <blockquote>
