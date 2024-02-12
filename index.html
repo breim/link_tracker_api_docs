@@ -331,7 +331,7 @@
                     <a href="#update-a-specific-link" class="toc-h2 toc-link" data-title="Update a Specific Link">Update a Specific Link</a>
                   </li>
                   <li>
-                    <a href="#create-a-specific-link" class="toc-h2 toc-link" data-title="Create a Specific Link">Create a Specific Link</a>
+                    <a href="#create-a-link" class="toc-h2 toc-link" data-title="Create a Link">Create a Link</a>
                   </li>
                   <li>
                     <a href="#delete-a-specific-link" class="toc-h2 toc-link" data-title="Delete a Specific Link">Delete a Specific Link</a>
@@ -474,7 +474,7 @@
 <td>The url to be updated</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-specific-link'>Create a Specific Link</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+<h2 id='create-a-link'>Create a Link</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
   <span class="nt">--url</span> http://localhost:3000/api/v1/links <span class="se">\</span>
   <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   <span class="nt">--data</span> <span class="s1">'{"link": {"original_url": "https://google.com/"}}'</span>
