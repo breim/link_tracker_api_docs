@@ -84,14 +84,6 @@ page | true | You can use this parameter to paginate through the results. The de
 ## Get a Specific Link
 
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-
 ```shell
 curl --request GET \
   --url http://localhost:3000/api/v1/links/60
