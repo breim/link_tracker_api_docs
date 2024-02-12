@@ -154,7 +154,7 @@ Parameter  | Description
 "link": "original_url" | The url to be updated
 
 
-## Create a Specific Link
+## Create a Link
 
 
 ```shell
